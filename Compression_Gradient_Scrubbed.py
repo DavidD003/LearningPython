@@ -180,12 +180,12 @@ if GradientType == 4:
         for fa in range(0, len(hires)):
             NearestFound = [10000000000000, 0, wts[0]]
             for rindex in range(0, len(ranks)):
-                if True != (point[0] > hires[fa][1][0] and point[1] > hires[fa][0][1] and point[1] < hires[fa][1][1]):
-                    if (point[0]-bounds[rindex][fa][0] < point[0]-NearestFound[0]) and (point[0]-bounds[rindex][fa][0] > 0):
+                if True != (point[0] > hires[fa][1][0]):
+                    if (point[0]-bounds[rindex][fa][0] < NearestFound[0]) and (point[1] > bounds[rindex][fa][1]) and (point[1] < bounds[rindex][fa][3]) and (point[0]-bounds[rindex][fa][0] > 0):
                         NearestFound = [point[0]-bounds[rindex][fa]
                                         [0], rindex+1, bounds[rindex+1][fa][4]]
                 else:
-                    if (bounds[rindex][fa][0]-point[0] < NearestFound[0]-point[0]) and (bounds[rindex][fa][0]-point[0] > 0):
+                    if (bounds[rindex][fa][0]-point[0] < NearestFound[0]) and (bounds[rindex][fa][0]-point[0] > 0) and (point[1] > bounds[rindex][fa][1]) and (point[1] < bounds[rindex][fa][3]):
                         NearestFound = [bounds[rindex][fa][0] -
                                         point[0], rindex+1, bounds[rindex+1][fa][4]]
                 if (point[0]-bounds[rindex][fa][0] > 0) and (point[0]-bounds[rindex][fa][0] < TrueNearestFoundDelta[0]):
@@ -263,8 +263,8 @@ for bnd in bounds:
                                                       [0][0]:hires[0][1][0], :]
             WIP[:, hires[0][0][1]:hires[0][1][1]] = X[:,
                                                       hires[0][0][1]:hires[0][1][1]]
-imsave('Gradient Output.jpg', WIP)
-imsave('OrigForGradientOverlay.jpg', X)
+imsave(r'C:\Users\xx-_-\Documents\Coding Products\Python (Local)\Gradient_Output.jpg', WIP)
+imsave(r'C:\Users\xx-_-\Documents\Coding Products\Python (Local)\OrigForGradientOverlay.jpg', X)
 plt.rcParams['figure.figsize'] = [16, 6]
 plt.rcParams.update({'font.size': 18})
 fig, axs = plt.subplots(1, 2)

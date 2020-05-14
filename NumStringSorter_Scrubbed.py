@@ -15,13 +15,3 @@ def NumStringSorter(val):
         return ky
     else:
         return 'b' + val
-
-
-ls = [5, 4, 8, 'a', 'z', -1, 'ball', -15, 12.4, '!str', 'str',
-      'aardvark', 'blast', 'bless', 7.8, 7.5, -.05, -5, -10.5, -10]
-
-# lssorted = sorted(ls)
-
-lssorted = sorted(ls, key=NumStringSorter)
-
-print(lssorted)

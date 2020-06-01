@@ -62,7 +62,7 @@ osc = True
 #   Determines whether or not the 'flower' grows and shrinks cyclically instead of just growing
 
 ################################################
-Program:
+# Program:
 
 pts = []
 with open(filepath) as f:
